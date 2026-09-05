@@ -12,6 +12,45 @@
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap');
   * {
     margin: 0; padding: 0; box-sizing: border-box;
+/* Приховати меню за замовчуванням на мобільних */
+@media (max-width: 768px) {
+  nav {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    flex-direction: column;
+    background: #FFF9F8;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    padding: 1.5rem 2rem;
+    gap: 1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    z-index: 999;
+  }
+  nav.active {
+    max-height: 320px; /* або підкоригуй за потребою */
+  }
+  /* Зробити кнопку гамбургера видимою */
+  .menu-toggle {
+    display: flex;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1000; /* щоб бути над меню */
+  }
+  .menu-toggle span {
+    display: block;
+    height: 3px;
+    background-color: #D63131;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+}
 
 }
   }
@@ -182,16 +221,8 @@
     height: 22px;
     justify-content: space-between;
   }
-  .menu-toggle span {
-    
-    display: block;
-    height: 3px;
-    background-color: #D63131;
-    border-radius: 2px;
-    transition: all 0.3s ease;
   
-}
-  }
+  
   nav.mobile-hidden {
     display: flex;
   }
