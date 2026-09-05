@@ -1232,6 +1232,11 @@
   });
 }
 
+menuToggle.addEventListener('click', () => {
+  const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+  menuToggle.setAttribute('aria-expanded', !expanded);
+  menuNav.classList.toggle('active');
+});
 
   function addToCart(name, price) {
     if (cart[name]) {
