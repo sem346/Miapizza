@@ -12,11 +12,8 @@
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap');
   * {
     margin: 0; padding: 0; box-sizing: border-box;
-      @media (max-width: 768px) {
-  nav {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
+
+}
   }
   nav.active {
     max-height: 320px; /* або потрібна висота, щоб показати меню */
@@ -34,6 +31,15 @@
     color: #D63131;
     text-decoration: none;
     transition: color 0.3s ease;
+  }
+  @media (max-width: 768px) {
+  nav {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  nav.active {
+    max-height: 320px; /* по потребі підкоригуй висоту */
   }
   a:hover, a:focus {
     color: #B22323;
