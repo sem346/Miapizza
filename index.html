@@ -1,0 +1,3028 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Daily-list</title>
+
+    <link rel="stylesheet" href="cod.css">
+</head>
+
+
+<body><div class="start">
+<div>Hello our site can help you
+    with  your daily routine
+</div>
+<div>click this button</div></div>
+<button class="open">open site</button>
+<div class="mainpart">
+    <button id="home">home</button>
+    <button id="task"> add task</button>
+    <button id="exp">add EXPENSES</button>
+    <button id="earn">add earnings</button>
+  <button id="deli">add deadlines</button>
+
+
+</div>
+<div class="tasks">
+<input type="text"id="int" placeholder="enter your tasks">
+<button id="add">add</button>
+</div>
+ <div id="task-list"></div>
+<script src="index.js"></script>
+
+
+
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mia Pizza</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap');
+
+  /* Reset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background: #FAF9F6;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  a {
+    color: #D63131;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover, a:focus {
+    color: #B22323;
+    outline: none;
+  }
+
+  /* Scroll smooth */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Container and Grid */
+  .container {
+    width: 90vw;
+    max-width: 1300px;
+    margin: auto;
+  }
+
+  /* === HEADER === */
+  header {
+    position: sticky;
+    top: 0;
+    background: #FFF;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 0.05);
+    z-index: 1000;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+  }
+  header.scrolled {
+    background: #FFF0F0;
+    padding: 0.5rem 0;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+  }
+
+  .logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #D63131;
+  }
+
+  nav {
+    display: flex;
+    gap: 2rem;
+  }
+
+  nav a {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    position: relative;
+  }
+  nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #D63131;
+    transition: width 0.3s ease;
+  }
+  nav a:hover::after,
+  nav a:focus::after {
+    width: 100%;
+  }
+
+  .btn-order {
+    background: #D63131;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.4rem;
+    cursor: pointer;
+    font-weight: 700;
+    border-radius: 30px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  .btn-order:hover, .btn-order:focus {
+    background: #B22323;
+    outline: none;
+  }
+
+  /* Mobile Menu */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 28px;
+    height: 22px;
+    justify-content: space-between;
+  }
+  .menu-toggle span {
+    background: #D63131;
+    height: 3px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  nav.mobile-hidden {
+    display: flex;
+  }
+  @media (max-width: 768px) {
+    nav {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      right: 0;
+      background: #FFF9F8;
+      flex-direction: column;
+      padding: 1.5rem 2rem;
+      gap: 1rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      box-shadow: 0 2px 10px rgb(0 0 0 / 0.15);
+      z-index: 999;
+    }
+    nav.active {
+      max-height: 320px;
+    }
+    .menu-toggle {
+      display: flex;
+    }
+  }
+
+  /* === HERO === */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    padding: 5rem 0 7rem;
+  }
+  .hero-text {
+    max-width: 520px;
+  }
+  .hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.8rem;
+    color: #D63131;
+    margin-bottom: 1rem;
+  }
+  .hero-desc {
+    font-size: 1.2rem;
+    color: #5A5A5A;
+    margin-bottom: 2rem;
+  }
+  .hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .btn-primary {
+    background: #D63131;
+    color: #fff;
+    padding: 0.9rem 2.2rem;
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 3px 7px rgb(214 49 49 / 0.5);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .btn-primary:hover, .btn-primary:focus {
+    background: #B22323;
+    box-shadow: 0 5px 15px rgb(178 35 35 / 0.6);
+    outline: none;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    border: 2px solid #D63131;
+    color: #D63131;
+    padding: 0.85rem 2.2rem;
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .btn-secondary:hover, .btn-secondary:focus {
+    background: #D63131;
+    color: #fff;
+    outline: none;
+  }
+
+  .hero-image {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 25px rgb(214 49 49 / 0.3);
+    transition: transform 0.5s ease;
+  }
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+  .hero-image:hover {
+    transform: scale(1.04);
+  }
+
+  /* Decorative element */
+  .hero-decor {
+    position: absolute;
+    top: 15%;
+    right: 10%;
+    font-size: 5rem;
+    color: #F4D1C1;
+    font-weight: 900;
+    user-select: none;
+    z-index: 1;
+    pointer-events: none;
+    font-family: 'Montserrat', sans-serif;
+    transform: rotate(-15deg);
+  }
+
+  @media (max-width: 992px) {
+    .hero {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .hero-decor {
+      display: none;
+    }
+    .hero-image {
+      margin-top: 2rem;
+    }
+  }
+
+  /* === MENU === */
+  .menu-section {
+    padding: 4rem 0 6rem;
+  }
+  .menu-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #D63131;
+  }
+  .menu-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1.4rem;
+    margin-bottom: 2.8rem;
+    flex-wrap: wrap;
+  }
+  .menu-filter-btn {
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: 2px solid #D63131;
+    background: transparent;
+    color: #D63131;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .menu-filter-btn.active,
+  .menu-filter-btn:hover,
+  .menu-filter-btn:focus {
+    background: #D63131;
+    color: #fff;
+    outline: none;
+  }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+  }
+
+  .menu-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgb(0 0 0 / 0.08);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    cursor: default;
+  }
+  .menu-card:hover, .menu-card:focus-within {
+    box-shadow: 0 10px 25px rgb(214 49 49 / 0.3);
+  }
+
+  .menu-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+
+  .menu-content {
+    padding: 1.4rem 1.6rem 1.8rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #D63131;
+    margin-bottom: 0.4rem;
+  }
+  .menu-desc {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+    font-style: italic;
+  }
+  .menu-ingredients {
+    font-size: 0.9rem;
+    color: #999;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+  .menu-price {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #444;
+    margin-top: auto;
+  }
+
+  .menu-price span {
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: #777;
+    margin-left: 6px;
+  }
+
+  .btn-add {
+    margin-top: 1rem;
+    background: #D63131;
+    color: white;
+    border: none;
+    padding: 0.7rem;
+    border-radius: 25px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .btn-add:hover, .btn-add:focus {
+    background: #B22323;
+    outline: none;
+  }
+
+  /* === CART SIDE PANEL === */
+  .cart-drawer {
+    position: fixed;
+    right: -400px;
+    top: 0;
+    width: 360px;
+    height: 100vh;
+    background: white;
+    box-shadow: -8px 0 25px rgba(0, 0, 0, 0.2);
+    padding: 1.5rem 1.8rem;
+    transition: right 0.4s ease;
+    z-index: 1500;
+    display: flex;
+    flex-direction: column;
+  }
+  .cart-drawer.active {
+    right: 0;
+  }
+  .cart-header {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #D63131;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .cart-close-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    color: #D63131;
+    cursor: pointer;
+    font-weight: 700;
+  }
+  .cart-empty {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #999;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .cart-items {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+  }
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  .cart-item-info {
+    flex: 1;
+    margin-right: 1rem;
+  }
+  .cart-item-name {
+    font-weight: 700;
+    color: #D63131;
+    font-size: 1rem;
+  }
+  .cart-item-price {
+    color: #555;
+    font-size: 0.9rem;
+  }
+  .cart-item-qty {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.3rem;
+  }
+  .qty-btn {
+    background: #D63131;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1;
+    transition: background-color 0.3s ease;
+  }
+  .qty-btn:hover, .qty-btn:focus {
+    background: #B22323;
+    outline: none;
+  }
+  .qty-num {
+    min-width: 20px;
+    text-align: center;
+  }
+  .cart-remove-btn {
+    background: transparent;
+    border: none;
+    color: #D63131;
+    cursor: pointer;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1;
+    transition: color 0.3s ease;
+  }
+  .cart-remove-btn:hover, .cart-remove-btn:focus {
+    color: #B22323;
+    outline: none;
+  }
+  .cart-footer {
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+  }
+  .cart-total {
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  .btn-clear-cart {
+    background: transparent;
+    border: 2px solid #D63131;
+    color: #D63131;
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 25px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .btn-clear-cart:hover, .btn-clear-cart:focus {
+    background: #D63131;
+    color: white;
+    outline: none;
+  }
+
+  /* Visual feedback toast */
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #D63131;
+    color: white;
+    padding: 1rem 1.8rem;
+    border-radius: 50px;
+    box-shadow: 0 3px 10px rgb(214 49 49 / 0.7);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    font-weight: 700;
+    z-index: 2000;
+  }
+  .toast.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* === ABOUT US === */
+  .about-section {
+    background: #FFF5F4;
+    padding: 5rem 0 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.8rem;
+    align-items: center;
+  }
+  .about-text {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  .about-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.4rem;
+    color: #D63131;
+    margin-bottom: 1rem;
+  }
+  .about-img {
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgb(214 49 49 / 0.2);
+    overflow: hidden;
+  }
+  .about-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+  .about-benefits {
+    margin-top: 1.8rem;
+    display: flex;
+    gap: 1.8rem;
+    flex-wrap: wrap;
+  }
+  .benefit {
+    background: white;
+    padding: 1.1rem 1.2rem;
+    border-radius: 15px;
+    box-shadow: 0 2px 15px rgb(0 0 0 / 0.05);
+    flex: 1;
+    min-width: 140px;
+    font-weight: 600;
+    color: #D63131;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  @media (max-width: 992px) {
+    .about-section {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .about-benefits {
+      justify-content: center;
+    }
+  }
+
+  /* === GALLERY === */
+  .gallery-section {
+    padding: 5rem 0 6rem;
+    background: #FAF9F6;
+  }
+
+  .gallery-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #D63131;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 150px;
+    gap: 12px;
+  }
+  .gallery-grid > div {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgb(214 49 49 / 0.2);
+    transition: transform 0.5s ease;
+    cursor: pointer;
+  }
+  .gallery-grid > div:hover {
+    transform: scale(1.05);
+    z-index: 1;
+  }
+  .gallery-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  /* Different spans for interesting layout */
+  .span-2-col {
+    grid-column: span 2;
+  }
+  .span-2-row {
+    grid-row: span 2;
+  }
+
+  @media (max-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 120px;
+    }
+  }
+
+  /* === CONTACTS === */
+  .contacts-section {
+    padding: 4rem 0 6rem;
+    background: #FFF5F4;
+  }
+  .contacts-inner {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    gap: 2.5rem;
+  }
+  .contacts-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+  .contact-item {
+    flex: 1 1 250px;
+    background: white;
+    border-radius: 15px;
+    padding: 1.8rem;
+    box-shadow: 0 6px 15px rgb(214 49 49 / 0.1);
+    font-size: 1.1rem;
+    color: #555;
+  }
+  .contact-item strong {
+    color: #D63131;
+  }
+  .contact-link {
+    color: #D63131;
+    font-weight: 700;
+  }
+
+  /* Placeholder map style */
+  .map-placeholder {
+    width: 100%;
+    height: 280px;
+    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgb(214 49 49 / 0.25);
+  }
+
+  /* === FOOTER === */
+  footer {
+    background: #D63131;
+    color: #fff;
+    padding: 2rem 0;
+    font-size: 0.9rem;
+  }
+  footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  footer .logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+  footer nav a {
+    color: #fff;
+    font-weight: 600;
+    margin-right: 1.3rem;
+    font-size: 0.95rem;
+  }
+  footer nav a:last-child {
+    margin-right: 0;
+  }
+  footer .socials a {
+    color: #fff;
+    font-size: 1.3rem;
+    margin-left: 1rem;
+    transition: color 0.3s ease;
+  }
+  footer .socials a:hover, footer .socials a:focus {
+    color: #FFBABA;
+    outline: none;
+  }
+
+  /* === Responsive tweaks === */
+  @media (max-width: 576px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+    .menu-filter-btn {
+      font-size: 0.95rem;
+      padding: 0.4rem 1rem;
+    }
+    .about-title {
+      font-size: 2rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo" tabindex="0">Mia Pizza</div>
+    <nav aria-label="Primary">
+      <a href="#hero" tabindex="0">Головна</a>
+      <a href="#menu" tabindex="0">Меню</a>
+      <a href="#about" tabindex="0">Про нас</a>
+      <a href="#gallery" tabindex="0">Галерея</a>
+      <a href="#contacts" tabindex="0">Контакти</a>
+    </nav>
+    <button class="btn-order" aria-label="Відкрити кошик">Замовити</button>
+    <div class="menu-toggle" aria-label="Відкрити меню" aria-expanded="false" role="button" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+<section id="hero" class="hero container" aria-label="Головний банер">
+  <div class="hero-text">
+    <h1 class="hero-title">Смачна італійська піца з любов'ю</h1>
+    <p class="hero-desc">
+      Mia Pizza — затишна атмосфера та справжній смак Італії у кожному шматку. Замовляйте зараз і насолоджуйтесь!
+    </p>
+    <div class="hero-buttons">
+     
+      <button class="btn-secondary" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">Переглянути меню</button>
+    </div>
+  </div>
+  <div class="hero-image" aria-hidden="true">
+    
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQitHrCrunmMYt0wnCdvolIMG3vPCRD2Mlg3Ro9E5gV1g&s=10" alt="Велика смачна піца з сиром та інгредієнтами" />
+  </div>
+</section>
+
+<section id="menu" class="menu-section container" aria-label="Меню ресторану">
+  <h2 class="menu-title">Меню</h2>
+  <div class="menu-filters" role="tablist" aria-label="Фільтр меню за категоріями">
+    <button class="menu-filter-btn active" data-category="pizza" role="tab" aria-selected="true" tabindex="0">Піца</button>
+    <button class="menu-filter-btn" data-category="first" role="tab" aria-selected="false" tabindex="0">Перші страви</button>
+    <button class="menu-filter-btn" data-category="salads" role="tab" aria-selected="false" tabindex="0">Салати</button>
+    <button class="menu-filter-btn" data-category="main" role="tab" aria-selected="false" tabindex="0">Другі страви</button>
+    <button class="menu-filter-btn" data-category="drinks" role="tab" aria-selected="false" tabindex="0">Напої</button>
+    <button class="menu-filter-btn" data-category="desserts" role="tab" aria-selected="false" tabindex="0">Десерти</button>
+    <button class="menu-filter-btn" data-category="burgers" role="tab" aria-selected="false" tabindex="0">Бургери</button>
+  </div>
+  <div class="menu-grid" id="menuGrid" role="tabpanel"></div>
+</section>
+
+<section id="about" class="about-section container" aria-label="Про нас">
+  <div class="about-text">
+    <h2 class="about-title">Про Mia Pizza</h2>
+    <p>Уже більше 5 років Mia Pizza дарує тепло італійської кухні у центрі міста. Ми використовуємо свіжі інгредієнти та традиційні рецепти, щоб кожна піца була справжнім шедевром.</p>
+    <div class="about-benefits" role="list">
+      <div class="benefit" role="listitem">Світла затишна атмосфера</div>
+      <div class="benefit" role="listitem">Свіжі натуральні продукти</div>
+      <div class="benefit" role="listitem">Досвідчені кухарі з Італії</div>
+    </div>
+  </div>
+  <div class="about-img" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=600&q=80" alt="Інтер'єр ресторану Mia Pizza" />
+  </div>
+</section>
+
+<section id="gallery" class="gallery-section" aria-label="Галерея">
+  <h2 class="gallery-title">Галерея</h2>
+  <div class="container gallery-grid" aria-live="polite" aria-atomic="true">
+    <div class="span-2-col"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_Hq8OgCWUyAqYVXeT1uqeIh7bKpDtuEisVuJed_66HQ&s=10" alt="Піца з базиліком і моцарелою" /></div>
+    <div class="span-2-row"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOjCShRpW_pfe1KEcwMLua3UB-18jVB8YUeAZLdUwNYFGtR9izPbx5_40&s=10" alt="Світлі свіжі італійські інгредієнти" /></div>
+    <div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQppbGcUa2ez_VfESJ4_8T8XSNIUIe2qja1jphyAHhK8w&s" alt="Кухар готує піцу" /></div>
+    <div><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80" alt="Декор атмосфери ресторану з настільною лампою" /></div>
+    <div class="span-2-col"><img src="https://images.unsplash.com/photo-1495195134817-aeb325a55b65?auto=format&fit=crop&w=400&q=80" alt="Процес приготування свіжої піци" /></div>
+    <div><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=400&q=80" alt="Світлі овочі для піци" /></div>
+  </div>
+</section>
+
+<section id="contacts" class="contacts-section" aria-label="Контакти">
+  <div class="container contacts-inner">
+    <div class="contacts-row">
+      <div class="contact-item">
+        <strong>Адреса:</strong> вулиця Равська, 12, Немирів, Львівська область, 81013
+      </div>
+      <div class="contact-item">
+        <strong>Телефон:</strong> <a href="tel:+380676045552" class="contact-link">+38  067 604 5552</a>
+      </div>
+      <div class="contact-item">
+        <strong>Графік роботи:</strong><br/>
+        Пн-Нд: 12:00 - 23:00
+      </div>
+      <div class="contact-item">
+        <strong>Instagram:</strong><br/>
+        <a href="https://instagram.com/mia_pizza_25" target="_blank" rel="noopener" class="contact-link">@mia_pizza_25</a>
+      </div>
+    </div>
+    <div class="map-placeholder" aria-label="Карта розташування ресторану"></div>
+  </div>
+</section>
+
+
+<aside class="cart-drawer" aria-label="Кошик замовлень" aria-hidden="true" tabindex="-1" id="cartDrawer">
+  <div class="cart-header">
+    <span>Ваш кошик</span>
+    <button class="cart-close-btn" aria-label="Закрити кошик" id="cartCloseBtn">&times;</button>
+  </div>
+  <div class="cart-items" id="cartItems" role="list"></div>
+  <div class="cart-empty" id="cartEmptyMsg">Ваш кошик порожній</div>
+  <div class="cart-footer">
+    <div class="cart-total" id="cartTotal">Загалом: 0 грн</div>
+    <button class="btn-clear-cart" id="clearCartBtn" aria-disabled="true" disabled>Очистити кошик</button>
+  </div>
+</aside>
+
+
+<div class="toast" id="toast" role="alert" aria-live="assertive" aria-atomic="true">Додано до кошика!</div>
+
+<script>
+  // Menu data structured by category and items
+  const menuData = {
+    pizza: [
+      {
+        name: "TOHO.",
+        description: "вершковий соус, оливки, помідор, цибуля, моцарела, тунець",
+        price: "250.00/280.00",
+        img: "https://images.unsplash.com/photo-1601924582974-f59f452d1d6e?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "ПЕПЕРОНІ..",
+        description: "на томатному соусі з пепероні, болгарським перцем, томатами, сиром вершковим та моцарелою",
+        price: "240.00/270.00",
+        img: "https://images.unsplash.com/photo-1547592180-7fb69b3433bb?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "ЦЕЗАРО",
+        description: "вершкова основа, куряча грудинка, яйця перепелині, томати, бекон, соус \"Цезар\", сир пармезан, листя салату",
+        price: "240.00/270.00",
+        img: "https://images.unsplash.com/photo-1547592180-7fb69b3433bb?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "САЛЯМІ",
+        description: "на томатному соусі з моцарелою, салямі, мисливськими ковбасками, шампіньйонами і томатами",
+        price: "230.00/260.00",
+        img: "https://images.unsplash.com/photo-1554118811-1e5a9a48642f?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "ДО ПИВА",
+        description: "на томатному соусі або соусі бешамель з моцарелою, беконом, вершковим сиром та часниковою олією",
+        price: "230.00/260.00",
+        img: "https://images.unsplash.com/photo-1513105737059-ff41d02cbfdb?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "БАРБЕКЮ",
+        description: "соус барбекю (гострий), куряча грудинка, мисливські ковбаски, шампіньйони, цибуля, моцарелла, вершковий сир",
+        price: "230.00/260.00",
+        img: "https://images.unsplash.com/photo-1554118811-1e5a9a48642f?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "БАВАРСЬКА.",
+        description: "на томатному соусі з моцароллою, мисливськими ковбасками, маринованими огірками та оливками.",
+        price: "230.00/260.00",
+        img: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "КОРОЛІВСЬКА.",
+        description: "на вершковому соусі з сиром дор блю та грушею",
+        price: "255.00/285.00",
+        img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "СУПЕР САЛЯМІ.",
+        description: "томатний соус, міні-салямі, салямі італійська, салямі чорізо, томати в'ялені, моцарелла",
+        price: "250.00/285.00",
+        img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "ВУЛКАН",
+        description: "на соусі бешамель або томатному соусі з копченрю куркою, болгарським перцем, моцарелою та часниковим соусом",
+        price: "250.00/285.00",
+        img: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "18+",
+        description: "томатний соус, паприка гостра, перець фарширований сиром, балик копчений, моцарелла",
+        price: "250.00/285.00",
+        img: "https://images.unsplash.com/photo-1543353071-087092ec393a?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "ВІД ШЕФА",
+        description: "соус бешамель, куряча грудинка, балиқ копчений, моцарела, вершковий сир, листя салату, апельсиновий соус",
+        price: "250.00/285.00",
+        img: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "МАРГАРИТА.",
+        description: "на томатному соусі з моцарелою, томатами і базиліком",
+        price: "160.00/190.00",
+        img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "ЧОТИРИ СИРИ",
+        description: "на соусі бешамель з сирами моцарела, чеддер, сметанковим, дорблю і базиліком",
+        price: "250.00/280.00",
+        img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "КАРБОНАРА",
+        description: "на соусі бешамель з моцарелою, копченою грудинкою, шинкою, томатами та сиром пармезан",
+        price: "240.00/270.00",
+        img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "ΜΑΡΙΟ",
+        description: "на томатному соусі з моцарелою, копченою шинкою, шампіньйонами, томатами і оливками",
+        price: "230.00/260.00",
+        img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "ВЕГЕТАРІАНСЬКА.",
+        description: "на томатному соусі або соусі бешамель з моцарелою, шампіньйонами, оливками та листям салату",
+        price: "230.00/260.00",
+        img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "КАЛЬЦОНЕ.",
+        description: "з курячою грудинкою, томатами, кукурудзою і сиром",
+        price: "220.00/250.00",
+        img: "https://images.unsplash.com/photo-1481931715705-36a2e873d0e3?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "СИЦИЛІЙСЬКА..",
+        description: "на томатному соусі з моцарелою, сиром салямі, ананасом, куркою та кукурудзою",
+        price: "230.00/260.00",
+        img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "ЧОТИРИ СЕЗОНИ.",
+        description: "на соусі бешамель з мисливськими ковбасками та кукурудзою",
+        price: "240.00/270.00",
+        img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "ФУНГІ...",
+        description: "на томатному соусі з моцарелою, шампіньйонами, томатами та оливками",
+        price: "220.00/250.00",
+        img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "ПРОШУТТО.",
+        description: "на томатному соусі з моцарелою, пармезаном, прошутто, томатами та оливками",
+        price: "250.00/280.00",
+        img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "КОЗАЦЬКА,",
+        description: "на томатному соусі з моцарелою, шинкою, беконом, мисливськими ковбасками та синьою цибулею",
+        price: "250.00/280.00",
+        img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "ФРУТТІ ДІ ΜΑΡЕ.",
+        description: "на томатному соусі з моцарелою та морепродуктами",
+        price: "260/290",
+        img: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=400&q=80"
+      }
+    ],
+    first: [
+      { name: "БОГРАЧ, 450 МЛ", price: "130 грн" },
+      { name: "БОРЩ УКРАЇНСЬКИЙ, 450 МЛ", price: "95 грн" },
+      { name: "ПАЛЯНИЦЯ З ЧАСНИКовим СОУСОМ ДО БОРЩУ, 2 ШТ", price: "60 грн" },
+      { name: "БОРЩ З САЛОМ, ЧОРНим ХЛІБОМ, ЦИБУЛЕЮ ТА ЧАСНИКОМ", price: "160 грн" },
+      { name: "БУЛЬЙОН З локшиною, 450 мл", price: "85 грн" },
+      { name: "КРЕМ-СУП ГРИБНИЙ, 450 МЛ", price: "95 грн" },
+      { name: "СОЛЯНКА,450 МЛ", price: "95 грн" },
+      { name: "СУП СИРНО-ОВОЧЕВИЙ, 450 мл", price: "100 грн" }
+    ],
+    salads: [
+      {
+        name: "БІГ МАК",
+        description: "Салат \"Айсберг\", фарш, огірок маринований, помідор, сир твердий, цибуля, кетчуп, майонез, гірчиця",
+        price: "85 грн"
+      },
+      {
+        name: "ГРИБНИЙ",
+        description: "Шинка, печериці мариновані, сир твердий, яйце, сухарики з білого хліба, заправка майонез або олія з соєвим соусом та гірчицею",
+        price: "80 грн"
+      },
+      {
+        name: "ОВОЧЕВИЙ",
+        description: "Огірок свіжий, болгарський перець, томати, синя цибуля, олія",
+        price: "75 грн"
+      },
+      {
+        name: "ЗОЛОТА ПІДКОВА",
+        description: "Куряча грудинка, ананас, сир вершковий, кукурудза, заправлений майонезний соусом",
+        price: "95 грн"
+      },
+      {
+        name: "АНШЛАГ",
+        description: "Шампіньйони, крабові палички, яєчний білок, кукурудза, заправлений майонезом соусом",
+        price: "85 грн"
+      },
+      {
+        name: "З ТУНЦЕМ",
+        description: "Тунець, мікс салату, яйце, огірок, цибуля, заправлений оливковою олією",
+        price: "85 грн"
+      },
+      {
+        name: "ГАРЯЧИЙ САЛАТ ЗІ СТРУЧКОВОЮ КВАСОЛЕЮ",
+        description: "стручкова квасоля, філе курки, печериці, перець болгарський, цибуля, бальзамічний оцет, оливкова олія, кунжут",
+        price: "95 грн"
+      },
+      {
+        name: "ВІД ШЕФА",
+        description: "Шинка, мікс салатів, томати, цибуля, печериці свіжі, кукурудза, перець болгарський, соєвий соус, заправлений олією",
+        price: "85 грн"
+      },
+      {
+        name: "ДНІСТЕР",
+        description: "Капуста білокачанна, шинка, горошок, цибуля, заправлений майонезом соусом",
+        price: "75 грн"
+      },
+      {
+        name: "ГРЕЦЬКИЙ",
+        description: "Салат, огірок, томати, болгарський перець, оливки, сир \"Фета\", оливкова олія, провансткі трави",
+        price: "80 грн"
+      }
+    ],
+    main: [
+      { name: "КАРТОПЛЯ П'ЮРЕ", price: "70 грн" },
+      { name: "КАРТОПЛЯ ФРІ", price: "75 грн" },
+      { name: "КАРТОПля по-СЕЛЯНСЬКИ", price: "80 грн" },
+      { name: "КАРТОПЛЯ З М'ЯСОМ TA ГРИБАМИ", price: "75 грн" },
+      { name: "ПЕЛЬМЕНІ", price: "80 грн" },
+      { name: "СМЕТАНА", price: "20 грн" },
+      {
+        name: "ПЕЛЬМЕНІ ОСОБЛИВІ",
+        description: "з шампіньйонами, вершками та сиром",
+        price: "120 грн"
+      },
+      { name: "ДЕРУНИ ЗІ СМЕТАНОЮ", price: "100 грн" },
+      { name: "ВАРЕНИКИ З КАРТОПЛЕЮ", price: "70 грн" },
+      { name: "ГРЕЧКА ВІДВАРНА З МАСЛОМ", price: "75 грн" },
+      { name: "РИС З ОВОЧАМИ", price: "80 грн" },
+      { name: "ПАСТА З КУРКОЮ ΤΑ СИРОМ", price: "110 грн" },
+      { name: "ПАСТА З СОУСОМ БОЛОНЬЄЗЕ.", price: "120 грн" },
+      { name: "ПАСТА З КРЕВЕТКАМИ В ВЕРШКОВОМУ СОУСІ", price: "130 грн" },
+      { name: "СТЕЙК КУРЯЧИЙ, 100 ГРАМ", price: "75 грн" },
+      { name: "ВІДБИВНА КУРЯЧА, 100 ГРАМ", price: "75 грн" },
+      { name: "ВІДБИВНА СВИННА, 100 ГРАМ", price: "85 грн" },
+      { name: "НАГЕТСИ, 100 ГРАМ", price: "65 грн" },
+      { name: "КОТЛЕТА РУБЛЕНА КУРЯЧА З СИРОМ, 100 ГРАМ", price: "75 грн" },
+      { name: "КУРКА З ОВОЧАМИ, 100 ГРАМ", price: "70 грн" },
+      { name: "ПЕЧЕРИЦІ ТУШКОВАНІ З КУРКОЮ У ВЕРШКОВОМУ СОУСІ, 100 ГРАМ", price: "75 грн" },
+      { name: "ЯЄШНЯ З БЕКОНОМ ТА ПОМІДОРАМИ, 2 ШТ", price: "75 грн" },
+      { name: "ПЕЧІНКА ТУШКОВАНА В ВЕРШКОВО- ГІРЧИЧНОМУ СОУСІ, 100 ГРАМ", price: "75 грн" },
+      { name: "РИБА НА ОВОЧЕВІЙ ПОДУШЦІ, 100 ГРАМ", price: "85 грн" }
+    ],
+    drinks: [
+      { name: "АЙС ЛАТТЕ", price: "75 грн" },
+      { name: "ЕСПРЕСО", price: "35 грн" },
+      { name: "АМЕРИКАНО", price: "45 грн" },
+      { name: "АМЕРИКАНО З МОЛОКОМ", price: "55 грн" },
+      { name: "АЙРІШ ВІСKI", price: "65 грн" },
+      { name: "АЙРІШ КАПУЧІНО", price: "60 грн" },
+      { name: "КАПУЧІНО", price: "60 грн" },
+      { name: "MAKIATO", price: "45 грн" },
+      { name: "ЛАТЕ", price: "65 грн" },
+      { name: "СИРОП", price: "10 грн" },
+      { name: "ЧАЙ", price: "35 грн", description: "Чорний, зелений, фруктовий ЧАЙ ТРАВ'ЯНИЙ" },
+      { name: "ЕКСКЛЮЗИВНИЙ ЧАЙ АН ЧАН, 1000 МЛ", price: "90 грн" }
+    ],
+    desserts: [],
+    burgers: [
+      {
+        name: "Класичний",
+        description: "яловича або куряча котлета, салат, солений огірок, свіжий помідор, маринована цибуля, смажений бекон, кетчуп, прчиця",
+        price: "140/170"
+      },
+      {
+        name: "Чізбургер",
+        description: "яловича або куряча котлета, салат, чеддер, свіжий помідор, соус барбекю та французький",
+        price: "120/150"
+      },
+      {
+        name: "Гриль бургер",
+        description: "яловича або куряча котлета, чеддер, салат, овочі гриль: перець болгарський, печериці, помідор; смажений бекон, соус з солодким чилі та часниковий соус",
+        price: "190/220"
+      },
+      {
+        name: "Додатки до бургерів: куряча котлета", price: "50 грн"
+      },
+      { name: "Додатки до бургерів: яловича котлета.", price: "70 грн" },
+      { name: "Додатки до бургерів: картопля фрі з соусом", price: "20 грн" },
+      { name: "Додатки до бургерів: сир", price: "50 грн" },
+      { name: "Додатки до бургерів: смажений бекон", price: "50 грн" }
+    ]
+  };
+
+  // Elements references
+  const menuGrid = document.getElementById('menuGrid');
+  const filterButtons = document.querySelectorAll('.menu-filter-btn');
+  const cartDrawer = document.getElementById('cartDrawer');
+  const cartItemsContainer = document.getElementById('cartItems');
+  const cartEmptyMsg = document.getElementById('cartEmptyMsg');
+  const cartTotal = document.getElementById('cartTotal');
+  const clearCartBtn = document.getElementById('clearCartBtn');
+  const toast = document.getElementById('toast');
+  const btnOrder = document.querySelector('.btn-order');
+  const orderHeroBtn = document.getElementById('orderHeroBtn');
+  const cartCloseBtn = document.getElementById('cartCloseBtn');
+  const menuNav = document.querySelector('nav');
+  const menuToggle = document.querySelector('.menu-toggle');
+
+  // Cart data structure
+  let cart = {};
+
+  // Helper: parse price string to number (take first price if range)
+  function parsePrice(str) {
+    if (!str) return 0;
+    let p = str.toString().split('/')[0].replace(/[^\d\.]/g, '');
+    return parseFloat(p) || 0;
+  }
+
+  // Render menu items for chosen category
+  function renderMenu(category = 'pizza') {
+    menuGrid.innerHTML = '';
+    const items = menuData[category] || [];
+
+    if (items.length === 0) {
+      menuGrid.innerHTML = `<p style="grid-column:1/-1; text-align:center; color:#999;">Вибачте, для цієї категорії поки немає страв.</p>`;
+      return;
+    }
+
+    items.forEach((item, i) => {
+      // Build description markup optionally
+      const descHTML = item.description ? `<p class="menu-desc">${item.description}</p>` : '';
+      const ingredientsHTML = item.ingredients ? `<p class="menu-ingredients">${item.ingredients}</p>` : '';
+
+      let priceHTML = '';
+
+      if (item.price) {
+        priceHTML = `<div class="menu-price">${item.price.includes('/') ? `<span>${item.price}</span>` : item.price}</div>`;
+      }
+
+      const imgSrc = item.img || 'https://images.unsplash.com/photo-1562967916-eb82221dfb47?auto=format&fit=crop&w=400&q=80';
+
+      const card = document.createElement('article');
+      card.className = 'menu-card';
+      card.setAttribute('tabindex', '0');
+      card.innerHTML = `
+        <img loading="lazy" src="${imgSrc}" alt="Фото: ${item.name}" class="menu-img" />
+        <div class="menu-content">
+          <h3 class="menu-name">${item.name}</h3>
+          ${descHTML}
+          ${ingredientsHTML}
+          ${priceHTML}
+          <button class="btn-add" aria-label="Додати ${item.name} до замовлення" data-name="${item.name}" data-price="${parsePrice(item.price)}">Додати до замовлення</button>
+        </div>
+      `;
+      menuGrid.appendChild(card);
+    });
+  }
+
+  // Filter button click handler
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      // Render menu of selected category
+      const cat = btn.getAttribute('data-category');
+      renderMenu(cat);
+    });
+  });
+  let cartheader = document.querySelector('.')
+let del = document.getElementById("cartCloseBtn")
+del.onclick = function(){
+    cartheader.style.display = 'none'
+}
+  // Add to cart function
+  function addToCart(name, price) {
+    if (cart[name]) {
+      cart[name].qty++;
+    } else {
+      cart[name] = { price, qty: 1 };
+    }
+    updateCartUI();
+    showToast('Додано до кошика!');
+  }
+
+  // Render cart UI
+  function updateCartUI() {
+    cartItemsContainer.innerHTML = '';
+    const keys = Object.keys(cart);
+    if (keys.length === 0) {
+      cartEmptyMsg.style.display = 'flex';
+      clearCartBtn.disabled = true;
+      clearCartBtn.setAttribute('aria-disabled', 'true');
+    } else {
+      cartEmptyMsg.style.display = 'none';
+      clearCartBtn.disabled = false;
+      clearCartBtn.setAttribute('aria-disabled', 'false');
+    }
+
+    let total = 0;
+    keys.forEach(name => {
+      const { price, qty } = cart[name];
+      total += price * qty;
+
+      const item = document.createElement('div');
+      item.className = 'cart-item';
+      item.setAttribute('role', 'listitem');
+      item.innerHTML = `
+        <div class="cart-item-info">
+          <div class="cart-item-name">${name}</div>
+          <div class="cart-item-price">${price} грн</div>
+          <div class="cart-item-qty">
+            <button class="qty-btn" aria-label="Зменшити кількість ${name}" data-action="decrease" data-name="${name}">−</button>
+            <div class="qty-num">${qty}</div>
+            <button class="qty-btn" aria-label="Збільшити кількість ${name}" data-action="increase" data-name="${name}">+</button>
+          </div>
+        </div>
+        <button class="cart-remove-btn" aria-label="Видалити ${name} з кошика" data-action="remove" data-name="${name}">×</button>
+      `;
+      cartItemsContainer.appendChild(item);
+    });
+    cartTotal.textContent = `Загалом: ${total.toFixed(2)} грн`;
+  }
+
+  // Visual toast notification
+  function showToast(message) {
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2200);
+  }
+
+  // Cart event handling (delegation)
+  cartItemsContainer.addEventListener('click', e => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    const action = btn.getAttribute('data-action');
+    const name = btn.getAttribute('data-name');
+    if (!action || !name) return;
+
+    if (action === 'increase') {
+      cart[name].qty++;
+    } else if (action === 'decrease') {
+      if (cart[name].qty > 1) {
+        cart[name].qty--;
+      } else {
+        delete cart[name];
+      }
+    } else if (action === 'remove') {
+      delete cart[name];
+    }
+    updateCartUI();
+  });
+
+  // Clear cart
+  clearCartBtn.addEventListener('click', () => {
+    cart = {};
+    updateCartUI();
+  });
+
+  // Add to cart from menu
+  menuGrid.addEventListener('click', e => {
+    const btn = e.target.closest('.btn-add');
+    if (!btn) return;
+    const name = btn.getAttribute('data-name');
+    const price = +btn.getAttribute('data-price');
+    if (!name || price == null) return;
+    addToCart(name, price);
+    openCart();
+  });
+
+  // Open/close cart
+  function openCart() {
+    cartDrawer.classList.add('active');
+    cartDrawer.setAttribute('aria-hidden', 'false');
+    cartDrawer.focus();
+  }
+  function closeCart() {
+    cartDrawer.classList.remove('active');
+    cartDrawer.setAttribute('aria-hidden', 'true');
+  }
+
+  btnOrder.addEventListener('click', openCart);
+  orderHeroBtn.addEventListener('click', openCart);
+  cartCloseBtn.addEventListener('click', closeCart);
+
+  // Accessibility: close cart on Esc key
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && cartDrawer.classList.contains('active')) {
+      closeCart();
+    }
+  });
+
+  // Sticky header background toggle on scroll
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      document.querySelector('header').classList.add('scrolled');
+    } else {
+      document.querySelector('header').classList.remove('scrolled');
+    }
+  });
+
+  // Mobile menu toggle
+  menuToggle.addEventListener('click', () => {
+    const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', !expanded);
+    menuNav.classList.toggle('active');
+  });
+
+  // Keyboard accessible menu toggle
+  menuToggle.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      menuToggle.click();
+    }
+  });
+
+  // Initialize menu with pizza category
+  renderMenu('pizza');
+
+</script>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mia Pizza</title>
+<style>
+  /* тут твій CSS без змін */
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap');
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background: #FAF9F6;
+    color: #333;
+    line-height: 1.6;
+  }
+  a {
+    color: #D63131;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover, a:focus {
+    color: #B22323;
+    outline: none;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  .container {
+    width: 90vw;
+    max-width: 1300px;
+    margin: auto;
+  }
+  header {
+    position: sticky;
+    top: 0;
+    background: #FFF;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 0.05);
+    z-index: 1000;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+  }
+  header.scrolled {
+    background: #FFF0F0;
+    padding: 0.5rem 0;
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+  }
+  .logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #D63131;
+  }
+  nav {
+    display: flex;
+    gap: 2rem;
+  }
+  nav a {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    position: relative;
+  }
+  nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #D63131;
+    transition: width 0.3s ease;
+  }
+  nav a:hover::after,
+  nav a:focus::after {
+    width: 100%;
+  }
+  .orders-modal {
+    position: fixed;
+    top: 0; left: 0; right:0; bottom:0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2500;
+  }
+  .orders-modal.active {
+    display: flex;
+  }
+  .orders-modal-content {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem 2.5rem;
+    max-width: 400px;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  .orders-modal-content h3 {
+    color: #388E3C;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 1rem;
+  }
+  .orders-list {
+    font-size: 0.95rem;
+    color: #333;
+  }
+  .orders-list div {
+    margin-bottom: 0.7rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.6rem;
+  }
+  .button-close-orders {
+    margin-top: 1rem;
+    background: #D63131;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.6rem;
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .button-close-orders:hover {
+    background: #B22323;
+  }
+  .btn-order {
+    background: #D63131;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.4rem;
+    cursor: pointer;
+    font-weight: 700;
+    border-radius: 30px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  .btn-order:hover, .btn-order:focus {
+    background: #B22323;
+    outline: none;
+  }
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 28px;
+    height: 22px;
+    justify-content: space-between;
+  }
+  .menu-toggle span {
+    background: #D63131;
+    height: 3px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  nav.mobile-hidden {
+    display: flex;
+  }
+  @media (max-width: 768px) {
+    nav {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      right: 0;
+      background: #FFF9F8;
+      flex-direction: column;
+      padding: 1.5rem 2rem;
+      gap: 1rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      box-shadow: 0 2px 10px rgb(0 0 0 / 0.15);
+      z-index: 999;
+    }
+    nav.active {
+      max-height: 320px;
+    }
+    .menu-toggle {
+      display: flex;
+    }
+  }
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    padding: 5rem 0 7rem;
+  }
+  .hero-text {
+    max-width: 520px;
+  }
+  .hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.8rem;
+    color: #D63131;
+    margin-bottom: 1rem;
+  }
+  .hero-desc {
+    font-size: 1.2rem;
+    color: #5A5A5A;
+    margin-bottom: 2rem;
+  }
+  .hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .btn-primary {
+    background: #D63131;
+    color: #fff;
+    padding: 0.9rem 2.2rem;
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 3px 7px rgb(214 49 49 / 0.5);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .btn-primary:hover, .btn-primary:focus {
+    background: #B22323;
+    box-shadow: 0 5px 15px rgb(178 35 35 / 0.6);
+    outline: none;
+  }
+  .btn-secondary {
+    background: transparent;
+    border: 2px solid #D63131;
+    color: #D63131;
+    padding: 0.85rem 2.2rem;
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .btn-secondary:hover, .btn-secondary:focus {
+    background: #D63131;
+    color: #fff;
+    outline: none;
+  }
+  .hero-image {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 25px rgb(214 49 49 / 0.3);
+    transition: transform 0.5s ease;
+  }
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+  .hero-image:hover {
+    transform: scale(1.04);
+  }
+  .hero-decor {
+    position: absolute;
+    top: 15%;
+    right: 10%;
+    font-size: 5rem;
+    color: #F4D1C1;
+    font-weight: 900;
+    user-select: none;
+    z-index: 1;
+    pointer-events: none;
+    font-family: 'Montserrat', sans-serif;
+    transform: rotate(-15deg);
+  }
+  @media (max-width: 992px) {
+    .hero {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .hero-decor {
+      display: none;
+    }
+    .hero-image {
+      margin-top: 2rem;
+    }
+  }
+  .menu-section {
+    padding: 4rem 0 6rem;
+  }
+  .menu-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #D63131;
+  }
+  .menu-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1.4rem;
+    margin-bottom: 2.8rem;
+    flex-wrap: wrap;
+  }
+  .menu-filter-btn {
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: 2px solid #D63131;
+    background: transparent;
+    color: #D63131;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .menu-filter-btn.active,
+  .menu-filter-btn:hover,
+  .menu-filter-btn:focus {
+    background: #D63131;
+    color: #fff;
+    outline: none;
+  }
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+  }
+  .menu-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgb(0 0 0 / 0.08);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    cursor: default;
+  }
+  .menu-card:hover, .menu-card:focus-within {
+    box-shadow: 0 10px 25px rgb(214 49 49 / 0.3);
+  }
+  .menu-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+  .menu-content {
+    padding: 1.4rem 1.6rem 1.8rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .menu-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #D63131;
+    margin-bottom: 0.4rem;
+  }
+  .menu-desc {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+    font-style: italic;
+  }
+  .menu-ingredients {
+    font-size: 0.9rem;
+    color: #999;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+  .menu-price {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #444;
+    margin-top: auto;
+  }
+  .menu-price span {
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: #777;
+    margin-left: 6px;
+  }
+  .btn-add {
+    margin-top: 1rem;
+    background: #D63131;
+    color: white;
+    border: none;
+    padding: 0.7rem;
+    border-radius: 25px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .btn-add:hover, .btn-add:focus {
+    background: #B22323;
+    outline: none;
+  }
+  .cart-drawer {
+    position: fixed;
+    right: -400px;
+    top: 0;
+    width: 360px;
+    height: 100vh;
+    background: white;
+    box-shadow: -8px 0 25px rgba(0, 0, 0, 0.2);
+    padding: 1.5rem 1.8rem;
+    transition: right 0.4s ease;
+    z-index: 1500;
+    display: flex;
+    flex-direction: column;
+  }
+  .cart-drawer.active {
+    right: 0;
+  }
+  .cart-header {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #D63131;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .cart-close-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    color: #D63131;
+    cursor: pointer;
+    font-weight: 700;
+  }
+  .cart-empty {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #999;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .cart-items {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+  }
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  .cart-item-info {
+    flex: 1;
+    margin-right: 1rem;
+  }
+  .cart-item-name {
+    font-weight: 700;
+    color: #D63131;
+    font-size: 1rem;
+  }
+  .cart-item-price {
+    color: #555;
+    font-size: 0.9rem;
+  }
+  .cart-item-qty {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.3rem;
+  }
+  .qty-btn {
+    background: #D63131;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1;
+    transition: background-color 0.3s ease;
+  }
+  .qty-btn:hover, .qty-btn:focus {
+    background: #B22323;
+    outline: none;
+  }
+  .qty-num {
+    min-width: 20px;
+    text-align: center;
+  }
+  .cart-remove-btn {
+    background: transparent;
+    border: none;
+    color: #D63131;
+    cursor: pointer;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1;
+    transition: color 0.3s ease;
+  }
+  .cart-remove-btn:hover, .cart-remove-btn:focus {
+    color: #B22323;
+    outline: none;
+  }
+  .cart-footer {
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .cart-total {
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+  .btn-clear-cart,
+  #submitOrderBtn {
+    background: transparent;
+    border: 2px solid #D63131;
+    color: #D63131;
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 25px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .btn-clear-cart:hover, .btn-clear-cart:focus,
+  #submitOrderBtn:hover, #submitOrderBtn:focus {
+    background: #D63131;
+    color: white;
+    outline: none;
+  }
+  .btn-clear-cart[disabled],
+  #submitOrderBtn[disabled] {
+    border-color: #ccc;
+    color: #ccc;
+    cursor: not-allowed;
+    background: transparent;
+  }
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #D63131;
+    color: white;
+    padding: 1rem 1.8rem;
+    border-radius: 50px;
+    box-shadow: 0 3px 10px rgb(214 49 49 / 0.7);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    font-weight: 700;
+    z-index: 2000;
+  }
+  .toast.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .about-section {
+    background: #FFF5F4;
+    padding: 5rem 0 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.8rem;
+    align-items: center;
+  }
+  .about-text {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  .about-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.4rem;
+    color: #D63131;
+    margin-bottom: 1rem;
+  }
+  .about-img {
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgb(214 49 49 / 0.2);
+    overflow: hidden;
+  }
+  .about-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+  .about-benefits {
+    margin-top: 1.8rem;
+    display: flex;
+    gap: 1.8rem;
+    flex-wrap: wrap;
+  }
+  .benefit {
+    background: white;
+    padding: 1.1rem 1.2rem;
+    border-radius: 15px;
+    box-shadow: 0 2px 15px rgb(0 0 0 / 0.05);
+    flex: 1;
+    min-width: 140px;
+    font-weight: 600;
+    color: #D63131;
+    text-align: center;
+    font-size: 1rem;
+  }
+  @media (max-width: 992px) {
+    .about-section {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .about-benefits {
+      justify-content: center;
+    }
+  }
+  .gallery-section {
+    padding: 5rem 0 6rem;
+    background: #FAF9F6;
+  }
+  .gallery-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #D63131;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 150px;
+    gap: 12px;
+  }
+  .gallery-grid > div {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgb(214 49 49 / 0.2);
+    transition: transform 0.5s ease;
+    cursor: pointer;
+  }
+  .gallery-grid > div:hover {
+    transform: scale(1.05);
+    z-index: 1;
+  }
+  .gallery-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .span-2-col {
+    grid-column: span 2;
+  }
+  .span-2-row {
+    grid-row: span 2;
+  }
+  @media (max-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 120px;
+    }
+  }
+  .contacts-section {
+    padding: 4rem 0 6rem;
+    background: #FFF5F4;
+  }
+  .contacts-inner {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    gap: 2.5rem;
+  }
+  .contacts-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+  .contact-item {
+    flex: 1 1 250px;
+    background: white;
+    border-radius: 15px;
+    padding: 1.8rem;
+    box-shadow: 0 6px 15px rgb(214 49 49 / 0.1);
+    font-size: 1.1rem;
+    color: #555;
+  }
+  .contact-item strong {
+    color: #D63131;
+  }
+  .contact-link {
+    color: #D63131;
+    font-weight: 700;
+  }
+  .map-placeholder {
+    width: 100%;
+    height: 280px;
+    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgb(214 49 49 / 0.25);
+  }
+  footer {
+    background: #D63131;
+    color: #fff;
+    padding: 2rem 0;
+    font-size: 0.9rem;
+  }
+  footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  footer .logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+  footer nav a {
+    color: #fff;
+    font-weight: 600;
+    margin-right: 1.3rem;
+    font-size: 0.95rem;
+  }
+  footer nav a:last-child {
+    margin-right: 0;
+  }
+  footer .socials a {
+    color: #fff;
+    font-size: 1.3rem;
+    margin-left: 1rem;
+    transition: color 0.3s ease;
+  }
+  footer .socials a:hover, footer .socials a:focus {
+    color: #FFBABA;
+    outline: none;
+  }
+  @media (max-width: 576px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+    .menu-filter-btn {
+      font-size: 0.95rem;
+      padding: 0.4rem 1rem;
+    }
+    .about-title {
+      font-size: 2rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo" tabindex="0">Mia Pizza</div>
+    <nav aria-label="Primary">
+      <a href="#hero" tabindex="0">Головна</a>
+      <a href="#menu" tabindex="0">Меню</a>
+      <a href="#about" tabindex="0">Про нас</a>
+      <a href="#gallery" tabindex="0">Галерея</a>
+      <a href="#contacts" tabindex="0">Контакти</a>
+    </nav>
+    <button class="btn-order" aria-label="Відкрити кошик">Замовити</button>
+    <button class="btn-orders-history" aria-label="Переглянути мої замовлення" style="margin-left:12px; background:#388E3C; color:#fff; border:none; padding:0.6rem 1.2rem; border-radius:30px; font-weight:700; cursor:pointer; transition:background-color 0.3s;">
+  Мої замовлення
+</button>
+
+    <div class="menu-toggle" aria-label="Відкрити меню" aria-expanded="false" role="button" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+<section id="hero" class="hero container" aria-label="Головний банер">
+  <div class="hero-text">
+    <h1 class="hero-title">Смачна італійська піца з любов'ю</h1>
+    <p class="hero-desc">
+      Mia Pizza — затишна атмосфера та справжній смак Італії у кожному шматку. Замовляйте зараз і насолоджуйтесь!
+    </p>
+    <div class="hero-buttons">
+      <button class="btn-primary" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})"id="orderHeroBtn">Замовити піцу</button>
+       
+      <button class="btn-secondary" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">Переглянути меню</button>
+    </div>
+  </div>
+  <div class="hero-image" aria-hidden="true">
+   
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAW5VLCpnyn8PJsDyAje4eBMZ6YCUvhnSyeH8pMkGLEQ&s=10" alt="Велика смачна піца з сиром та інгредієнтами" />
+  </div>
+</section>
+
+<section id="menu" class="menu-section container" aria-label="Меню ресторану">
+  <h2 class="menu-title">Меню</h2>
+  <div class="menu-filters" role="tablist" aria-label="Фільтр меню за категоріями">
+    <button class="menu-filter-btn active" data-category="pizza" role="tab" aria-selected="true" tabindex="0">Піца</button>
+    <button class="menu-filter-btn" data-category="first" role="tab" aria-selected="false" tabindex="0">Перші страви</button>
+    <button class="menu-filter-btn" data-category="salads" role="tab" aria-selected="false" tabindex="0">Салати</button>
+    <button class="menu-filter-btn" data-category="main" role="tab" aria-selected="false" tabindex="0">Другі страви</button>
+    <button class="menu-filter-btn" data-category="drinks" role="tab" aria-selected="false" tabindex="0">Напої</button>
+    <button class="menu-filter-btn" data-category="desserts" role="tab" aria-selected="false" tabindex="0">Десерти</button>
+    <button class="menu-filter-btn" data-category="burgers" role="tab" aria-selected="false" tabindex="0">Бургери</button>
+  </div>
+  <div class="menu-grid" id="menuGrid" role="tabpanel"></div>
+</section>
+
+<section id="about" class="about-section container" aria-label="Про нас">
+  <div class="about-text">
+    <h2 class="about-title">Про Mia Pizza</h2>
+    <p>Уже більше 5 років Mia Pizza дарує тепло італійської кухні у центрі міста. Ми використовуємо свіжі інгредієнти та традиційні рецепти, щоб кожна піца була справжнім шедевром.</p>
+    <div class="about-benefits" role="list">
+      <div class="benefit" role="listitem">Світла затишна атмосфера</div>
+      <div class="benefit" role="listitem">Свіжі натуральні продукти</div>
+      <div class="benefit" role="listitem">Досвідчені кухарі з Італії</div>
+    </div>
+  </div>
+  <div class="about-img" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=600&q=80" alt="Інтер'єр ресторану Mia Pizza" />
+  </div>
+</section>
+
+<section id="gallery" class="gallery-section" aria-label="Галерея">
+  <h2 class="gallery-title">Галерея</h2>
+  <div class="container gallery-grid" aria-live="polite" aria-atomic="true">
+    <div class="span-2-col"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=400&q=80" alt="Піца з базиліком і моцарелою" /></div>
+    <div class="span-2-row"><img src="https://images.unsplash.com/photo-1510626176961-4b7b9262846c?auto=format&fit=crop&w=400&q=80" alt="Світлі свіжі італійські інгредієнти" /></div>
+    <div><img src="https://images.unsplash.com/photo-1617191515947-94662871edae?auto=format&fit=crop&w=400&q=80" alt="Кухар готує піцу" /></div>
+    <div><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80" alt="Декор атмосфери ресторану з настільною лампою" /></div>
+    <div class="span-2-col"><img src="https://images.unsplash.com/photo-1495195134817-aeb325a55b65?auto=format&fit=crop&w=400&q=80" alt="Процес приготування свіжої піци" /></div>
+    <div><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=400&q=80" alt="Світлі овочі для піци" /></div>
+  </div>
+</section>
+
+<section id="contacts" class="contacts-section" aria-label="Контакти">
+  <div class="container contacts-inner">
+    <div class="contacts-row">
+      <div class="contact-item">
+        <strong>Адреса:</strong> вулиця Равська, 12, Немирів, Львівська область, 81013
+      </div>
+      <div class="contact-item">
+        <strong>Телефон:</strong> <a href="tel:+380676045552" class="contact-link">+38  067 604 5552</a>
+      </div>
+      <div class="contact-item">
+        <strong>Графік роботи:</strong><br/>
+        Пн-Нд: 12:00 - 23:00
+      </div>
+      <div class="contact-item">
+        <strong>Instagram:</strong><br/>
+        <a href="https://instagram.com/mia_pizza_25" target="_blank" rel="noopener" class="contact-link">@mia_pizza_25</a>
+      </div>
+    </div>
+    <div class="map-placeholder" aria-label="Карта розташування ресторану"></div>
+  </div>
+</section>
+
+<aside class="cart-drawer" aria-label="Кошик замовлень" aria-hidden="true" tabindex="-1" id="cartDrawer">
+  <div class="cart-header">
+    <span>Ваш кошик</span>
+    <button class="cart-close-btn" aria-label="Закрити кошик" id="cartCloseBtn">&times;</button>
+  </div>
+  <div class="cart-items" id="cartItems" role="list"></div>
+  <div class="cart-empty" id="cartEmptyMsg">Ваш кошик порожній</div>
+  <div class="cart-footer">
+    <div class="cart-total" id="cartTotal">Загалом: 0 грн</div>
+    <button class="btn-clear-cart" id="clearCartBtn" aria-disabled="true" disabled>Очистити кошик</button>
+    <button class="btn-primary" id="submitOrderBtn" aria-label="Оформити замовлення" disabled>Оформити замовлення</button>
+  </div>
+</aside>
+
+<div class="toast" id="toast" role="alert" aria-live="assertive" aria-atomic="true">Додано до кошика!</div>
+
+<script>
+  const menuData = {
+      pizza: [
+      {
+        name: "TOHO.",
+        description: "вершковий соус, оливки, помідор, цибуля, моцарела, тунець",
+        price: "250.00/280.00",
+        img: "https://images.unsplash.com/photo-1601924582974-f59f452d1d6e?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "ПЕПЕРОНІ..",
+        description: "на томатному соусі з пепероні, болгарським перцем, томатами, сиром вершковим та моцарелою",
+        price: "240.00/270.00",
+        img: "https://images.unsplash.com/photo-1547592180-7fb69b3433bb?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "ЦЕЗАРО",
+        description: "вершкова основа, куряча грудинка, яйця перепелині, томати, бекон, соус \"Цезар\", сир пармезан, листя салату",
+        price: "240.00/270.00",
+        img: "https://images.unsplash.com/photo-1547592180-7fb69b3433bb?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "САЛЯМІ",
+        description: "на томатному соусі з моцарелою, салямі, мисливськими ковбасками, шампіньйонами і томатами",
+        price: "230.00/260.00",
+        img: "https://images.unsplash.com/photo-1554118811-1e5a9a48642f?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "ДО ПИВА",
+        description: "на томатному соусі або соусі бешамель з моцарелою, беконом, вершковим сиром та часниковою олією",
+        price: "230.00/260.00",
+        img: "https://images.unsplash.com/photo-1513105737059-ff41d02cbfdb?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "БАРБЕКЮ",
+        description: "соус барбекю (гострий), куряча грудинка, мисливські ковбаски, шампіньйони, цибуля, моцарелла, вершковий сир",
+        price: "230.00/260.00",
+        img: "https://images.unsplash.com/photo-1554118811-1e5a9a48642f?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "БАВАРСЬКА.",
+        description: "на томатному соусі з моцароллою, мисливськими ковбасками, маринованими огірками та оливками.",
+        price: "230.00/260.00",
+        img: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "КОРОЛІВСЬКА.",
+        description: "на вершковому соусі з сиром дор блю та грушею",
+        price: "255.00/285.00",
+        img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "СУПЕР САЛЯМІ.",
+        description: "томатний соус, міні-салямі, салямі італійська, салямі чорізо, томати в'ялені, моцарелла",
+        price: "250.00/285.00",
+        img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "ВУЛКАН",
+        description: "на соусі бешамель або томатному соусі з копченрю куркою, болгарським перцем, моцарелою та часниковим соусом",
+        price: "250.00/285.00",
+        img: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "18+",
+        description: "томатний соус, паприка гостра, перець фарширований сиром, балик копчений, моцарелла",
+        price: "250.00/285.00",
+        img: "https://images.unsplash.com/photo-1543353071-087092ec393a?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "ВІД ШЕФА",
+        description: "соус бешамель, куряча грудинка, балиқ копчений, моцарела, вершковий сир, листя салату, апельсиновий соус",
+        price: "250.00/285.00",
+        img: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "МАРГАРИТА.",
+        description: "на томатному соусі з моцарелою, томатами і базиліком",
+        price: "160.00/190.00",
+        img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "ЧОТИРИ СИРИ",
+        description: "на соусі бешамель з сирами моцарела, чеддер, сметанковим, дорблю і базиліком",
+        price: "250.00/280.00",
+        img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "КАРБОНАРА",
+        description: "на соусі бешамель з моцарелою, копченою грудинкою, шинкою, томатами та сиром пармезан",
+        price: "240.00/270.00",
+        img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "ΜΑΡΙΟ",
+        description: "на томатному соусі з моцарелою, копченою шинкою, шампіньйонами, томатами і оливками",
+        price: "230.00/260.00",
+        img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "ВЕГЕТАРІАНСЬКА.",
+        description: "на томатному соусі або соусі бешамель з моцарелою, шампіньйонами, оливками та листям салату",
+        price: "230.00/260.00",
+        img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "КАЛЬЦОНЕ.",
+        description: "з курячою грудинкою, томатами, кукурудзою і сиром",
+        price: "220.00/250.00",
+        img: "https://images.unsplash.com/photo-1481931715705-36a2e873d0e3?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "СИЦИЛІЙСЬКА..",
+        description: "на томатному соусі з моцарелою, сиром салямі, ананасом, куркою та кукурудзою",
+        price: "230.00/260.00",
+        img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "ЧОТИРИ СЕЗОНИ.",
+        description: "на соусі бешамель з мисливськими ковбасками та кукурудзою",
+        price: "240.00/270.00",
+        img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "ФУНГІ...",
+        description: "на томатному соусі з моцарелою, шампіньйонами, томатами та оливками",
+        price: "220.00/250.00",
+        img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "ПРОШУТТО.",
+        description: "на томатному соусі з моцарелою, пармезаном, прошутто, томатами та оливками",
+        price: "250.00/280.00",
+        img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "КОЗАЦЬКА,",
+        description: "на томатному соусі з моцарелою, шинкою, беконом, мисливськими ковбасками та синьою цибулею",
+        price: "250.00/280.00",
+        img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        name: "ФРУТТІ ДІ ΜΑΡЕ.",
+        description: "на томатному соусі з моцарелою та морепродуктами",
+        price: "260/290",
+        img: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=400&q=80"
+      }
+    ],
+    first: [
+      { name: "БОГРАЧ, 450 МЛ", price: "130 грн" },
+      { name: "БОРЩ УКРАЇНСЬКИЙ, 450 МЛ", price: "95 грн" },
+      { name: "ПАЛЯНИЦЯ З ЧАСНИКовим СОУСОМ ДО БОРЩУ, 2 ШТ", price: "60 грн" },
+      { name: "БОРЩ З САЛОМ, ЧОРНим ХЛІБОМ, ЦИБУЛЕЮ ТА ЧАСНИКОМ", price: "160 грн" },
+      { name: "БУЛЬЙОН З локшиною, 450 мл", price: "85 грн" },
+      { name: "КРЕМ-СУП ГРИБНИЙ, 450 МЛ", price: "95 грн" },
+      { name: "СОЛЯНКА,450 МЛ", price: "95 грн" },
+      { name: "СУП СИРНО-ОВОЧЕВИЙ, 450 мл", price: "100 грн" }
+    ],
+    salads: [
+      {
+        name: "БІГ МАК",
+        description: "Салат \"Айсберг\", фарш, огірок маринований, помідор, сир твердий, цибуля, кетчуп, майонез, гірчиця",
+        price: "85 грн"
+      },
+      {
+        name: "ГРИБНИЙ",
+        description: "Шинка, печериці мариновані, сир твердий, яйце, сухарики з білого хліба, заправка майонез або олія з соєвим соусом та гірчицею",
+        price: "80 грн"
+      },
+      {
+        name: "ОВОЧЕВИЙ",
+        description: "Огірок свіжий, болгарський перець, томати, синя цибуля, олія",
+        price: "75 грн"
+      },
+      {
+        name: "ЗОЛОТА ПІДКОВА",
+        description: "Куряча грудинка, ананас, сир вершковий, кукурудза, заправлений майонезний соусом",
+        price: "95 грн"
+      },
+      {
+        name: "АНШЛАГ",
+        description: "Шампіньйони, крабові палички, яєчний білок, кукурудза, заправлений майонезом соусом",
+        price: "85 грн"
+      },
+      {
+        name: "З ТУНЦЕМ",
+        description: "Тунець, мікс салату, яйце, огірок, цибуля, заправлений оливковою олією",
+        price: "85 грн"
+      },
+      {
+        name: "ГАРЯЧИЙ САЛАТ ЗІ СТРУЧКОВОЮ КВАСОЛЕЮ",
+        description: "стручкова квасоля, філе курки, печериці, перець болгарський, цибуля, бальзамічний оцет, оливкова олія, кунжут",
+        price: "95 грн"
+      },
+      {
+        name: "ВІД ШЕФА",
+        description: "Шинка, мікс салатів, томати, цибуля, печериці свіжі, кукурудза, перець болгарський, соєвий соус, заправлений олією",
+        price: "85 грн"
+      },
+      {
+        name: "ДНІСТЕР",
+        description: "Капуста білокачанна, шинка, горошок, цибуля, заправлений майонезом соусом",
+        price: "75 грн"
+      },
+      {
+        name: "ГРЕЦЬКИЙ",
+        description: "Салат, огірок, томати, болгарський перець, оливки, сир \"Фета\", оливкова олія, провансткі трави",
+        price: "80 грн"
+      }
+    ],
+    main: [
+      { name: "КАРТОПЛЯ П'ЮРЕ", price: "70 грн" },
+      { name: "КАРТОПЛЯ ФРІ", price: "75 грн" },
+      { name: "КАРТОПля по-СЕЛЯНСЬКИ", price: "80 грн" },
+      { name: "КАРТОПЛЯ З М'ЯСОМ TA ГРИБАМИ", price: "75 грн" },
+      { name: "ПЕЛЬМЕНІ", price: "80 грн" },
+      { name: "СМЕТАНА", price: "20 грн" },
+      {
+        name: "ПЕЛЬМЕНІ ОСОБЛИВІ",
+        description: "з шампіньйонами, вершками та сиром",
+        price: "120 грн"
+      },
+      { name: "ДЕРУНИ ЗІ СМЕТАНОЮ", price: "100 грн" },
+      { name: "ВАРЕНИКИ З КАРТОПЛЕЮ", price: "70 грн" },
+      { name: "ГРЕЧКА ВІДВАРНА З МАСЛОМ", price: "75 грн" },
+      { name: "РИС З ОВОЧАМИ", price: "80 грн" },
+      { name: "ПАСТА З КУРКОЮ ΤΑ СИРОМ", price: "110 грн" },
+      { name: "ПАСТА З СОУСОМ БОЛОНЬЄЗЕ.", price: "120 грн" },
+      { name: "ПАСТА З КРЕВЕТКАМИ В ВЕРШКОВОМУ СОУСІ", price: "130 грн" },
+      { name: "СТЕЙК КУРЯЧИЙ, 100 ГРАМ", price: "75 грн" },
+      { name: "ВІДБИВНА КУРЯЧА, 100 ГРАМ", price: "75 грн" },
+      { name: "ВІДБИВНА СВИННА, 100 ГРАМ", price: "85 грн" },
+      { name: "НАГЕТСИ, 100 ГРАМ", price: "65 грн" },
+      { name: "КОТЛЕТА РУБЛЕНА КУРЯЧА З СИРОМ, 100 ГРАМ", price: "75 грн" },
+      { name: "КУРКА З ОВОЧАМИ, 100 ГРАМ", price: "70 грн" },
+      { name: "ПЕЧЕРИЦІ ТУШКОВАНІ З КУРКОЮ У ВЕРШКОВОМУ СОУСІ, 100 ГРАМ", price: "75 грн" },
+      { name: "ЯЄШНЯ З БЕКОНОМ ТА ПОМІДОРАМИ, 2 ШТ", price: "75 грн" },
+      { name: "ПЕЧІНКА ТУШКОВАНА В ВЕРШКОВО- ГІРЧИЧНОМУ СОУСІ, 100 ГРАМ", price: "75 грн" },
+      { name: "РИБА НА ОВОЧЕВІЙ ПОДУШЦІ, 100 ГРАМ", price: "85 грн" }
+    ],
+    drinks: [
+      { name: "АЙС ЛАТТЕ", price: "75 грн" },
+      { name: "ЕСПРЕСО", price: "35 грн" },
+      { name: "АМЕРИКАНО", price: "45 грн" },
+      { name: "АМЕРИКАНО З МОЛОКОМ", price: "55 грн" },
+      { name: "АЙРІШ ВІСKI", price: "65 грн" },
+      { name: "АЙРІШ КАПУЧІНО", price: "60 грн" },
+      { name: "КАПУЧІНО", price: "60 грн" },
+      { name: "MAKIATO", price: "45 грн" },
+      { name: "ЛАТЕ", price: "65 грн" },
+      { name: "СИРОП", price: "10 грн" },
+      { name: "ЧАЙ", price: "35 грн", description: "Чорний, зелений, фруктовий ЧАЙ ТРАВ'ЯНИЙ" },
+      { name: "ЕКСКЛЮЗИВНИЙ ЧАЙ АН ЧАН, 1000 МЛ", price: "90 грн" }
+    ],
+    desserts: [],
+    burgers: [
+      {
+        name: "Класичний",
+        description: "яловича або куряча котлета, салат, солений огірок, свіжий помідор, маринована цибуля, смажений бекон, кетчуп, прчиця",
+        price: "140/170"
+      },
+      {
+        name: "Чізбургер",
+        description: "яловича або куряча котлета, салат, чеддер, свіжий помідор, соус барбекю та французький",
+        price: "120/150"
+      },
+      {
+        name: "Гриль бургер",
+        description: "яловича або куряча котлета, чеддер, салат, овочі гриль: перець болгарський, печериці, помідор; смажений бекон, соус з солодким чилі та часниковий соус",
+        price: "190/220"
+      },
+      {
+        name: "Додатки до бургерів: куряча котлета", price: "50 грн"
+      },
+      { name: "Додатки до бургерів: яловича котлета.", price: "70 грн" },
+      { name: "Додатки до бургерів: картопля фрі з соусом", price: "20 грн" },
+      { name: "Додатки до бургерів: сир", price: "50 грн" },
+      { name: "Додатки до бургерів: смажений бекон", price: "50 грн" }
+    ]
+  };
+
+  const menuGrid = document.getElementById('menuGrid');
+  const filterButtons = document.querySelectorAll('.menu-filter-btn');
+  const cartDrawer = document.getElementById('cartDrawer');
+  const cartItemsContainer = document.getElementById('cartItems');
+  const cartEmptyMsg = document.getElementById('cartEmptyMsg');
+  const cartTotal = document.getElementById('cartTotal');
+  const clearCartBtn = document.getElementById('clearCartBtn');
+  const submitOrderBtn = document.getElementById('submitOrderBtn');
+  const toast = document.getElementById('toast');
+  const btnOrder = document.querySelector('.btn-order');
+  const orderHeroBtn = document.getElementById('orderHeroBtn');
+  const cartCloseBtn = document.getElementById('cartCloseBtn');
+  const menuNav = document.querySelector('nav');
+  const menuToggle = document.querySelector('.menu-toggle');
+
+  let cart = {};
+
+  function renderMenu(category = 'pizza') {
+  menuGrid.innerHTML = '';
+  const items = menuData[category] || [];
+  if (items.length === 0) {
+    menuGrid.innerHTML = `<p style="grid-column:1/-1; text-align:center; color:#999;">Вибачте, для цієї категорії поки немає страв.</p>`;
+    return;
+  }
+  items.forEach(item => {
+    const descHTML = item.description ? `<p class="menu-desc">${item.description}</p>` : '';
+    const ingredientsHTML = item.ingredients ? `<p class="menu-ingredients">${item.ingredients}</p>` : '';
+    let priceHTML = '';
+
+    if (item.price) {
+      if (category === 'pizza') {
+        const prices = item.price.split('/');
+        const price26 = prices[0] ? prices[0].trim() : '';
+        const price30 = prices[1] ? prices[1].trim() : '';
+        const sizeSelectHTML = `
+          <div class="pizza-size-select" style="margin-bottom: 0.8rem;">
+            <label><input type="radio" name="size-${item.name}" value="26" checked> 26 см (${price26} грн)</label><br/>
+            <label><input type="radio" name="size-${item.name}" value="30"> 30 см (${price30} грн)</label>
+          </div>
+        `;
+        priceHTML = `<div class="menu-price">${sizeSelectHTML}</div>`;
+      } else {
+        // Якщо не піца - просто показуємо ціну
+        priceHTML = `<div class="menu-price">${item.price}</div>`;
+      }
+    }
+
+    const imgSrc = item.img || 'https://images.unsplash.com/photo-1562967916-eb82221dfb47?auto=format&fit=crop&w=400&q=80';
+
+    const card = document.createElement('article');
+    card.className = 'menu-card';
+    card.setAttribute('tabindex', '0');
+    card.innerHTML = `
+      <img loading="lazy" src="${imgSrc}" alt="Фото: ${item.name}" class="menu-img" />
+      <div class="menu-content">
+        <h3 class="menu-name">${item.name}</h3>
+        ${descHTML}
+        ${ingredientsHTML}
+        ${priceHTML}
+        <button class="btn-add" aria-label="Додати ${item.name} до замовлення" data-name="${item.name}" data-price="${item.price}">Додати до замовлення</button>
+      </div>
+    `;
+    menuGrid.appendChild(card);
+  });
+}
+
+
+  function addToCart(name, price) {
+    if (cart[name]) {
+      cart[name].qty++;
+    } else {
+      cart[name] = { price, qty: 1 };
+    }
+    updateCartUI();
+    showToast('Додано до кошика!');
+  }
+
+  menuGrid.addEventListener('click', e => {
+    const btn = e.target.closest('.btn-add');
+    if (!btn) return;
+    const name = btn.getAttribute('data-name');
+    const priceStr = btn.getAttribute('data-price');
+    if (!name || !priceStr) return;
+
+    const card = btn.closest('.menu-card');
+    const sizeRadios = card.querySelectorAll(`input[name="size-${name}"]`);
+    let selectedSize = '26';
+    sizeRadios.forEach(radio => {
+      if (radio.checked) selectedSize = radio.value;
+    });
+
+    const prices = priceStr.split('/');
+    let price = 0;
+    if (selectedSize === '26') {
+      price = parseFloat(prices[0].replace(/[^\d\.]/g, '')) || 0;
+    } else if (selectedSize === '30' && prices[1]) {
+      price = parseFloat(prices[1].replace(/[^\d\.]/g, '')) || 0;
+    }
+
+    const itemKey = `${name} (${selectedSize} см)`;
+
+    addToCart(itemKey, price);
+    openCart();
+  });
+
+  function updateCartUI() {
+    cartItemsContainer.innerHTML = '';
+    const keys = Object.keys(cart);
+    if (keys.length === 0) {
+      cartEmptyMsg.style.display = 'flex';
+      clearCartBtn.disabled = true;
+      clearCartBtn.setAttribute('aria-disabled', 'true');
+      submitOrderBtn.disabled = true;
+    } else {
+      cartEmptyMsg.style.display = 'none';
+      clearCartBtn.disabled = false;
+      clearCartBtn.setAttribute('aria-disabled', 'false');
+      submitOrderBtn.disabled = false;
+    }
+
+    let total = 0;
+    keys.forEach(name => {
+      const { price, qty } = cart[name];
+      total += price * qty;
+
+      const item = document.createElement('div');
+      item.className = 'cart-item';
+      item.setAttribute('role', 'listitem');
+      item.innerHTML = `
+        <div class="cart-item-info">
+          <div class="cart-item-name">${name}</div>
+          <div class="cart-item-price">${price} грн</div>
+          <div class="cart-item-qty">
+            <button class="qty-btn" aria-label="Зменшити кількість ${name}" data-action="decrease" data-name="${name}">−</button>
+            <div class="qty-num">${qty}</div>
+            <button class="qty-btn" aria-label="Збільшити кількість ${name}" data-action="increase" data-name="${name}">+</button>
+          </div>
+        </div>
+        <button class="cart-remove-btn" aria-label="Видалити ${name} з кошика" data-action="remove" data-name="${name}">×</button>
+      `;
+      cartItemsContainer.appendChild(item);
+    });
+    cartTotal.textContent = `Загалом: ${total.toFixed(2)} грн`;
+  }
+
+  function showToast(message) {
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2200);
+  }
+
+  cartItemsContainer.addEventListener('click', e => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    const action = btn.getAttribute('data-action');
+    const name = btn.getAttribute('data-name');
+    if (!action || !name) return;
+
+    if (action === 'increase') {
+      cart[name].qty++;
+    } else if (action === 'decrease') {
+      if (cart[name].qty > 1) {
+        cart[name].qty--;
+      } else {
+        delete cart[name];
+      }
+    } else if (action === 'remove') {
+      delete cart[name];
+    }
+    updateCartUI();
+  });
+
+  clearCartBtn.addEventListener('click', () => {
+    cart = {};
+    updateCartUI();
+  });
+
+  btnOrder.addEventListener('click', openCart);
+  cartCloseBtn.addEventListener('click', closeCart);
+
+  function openCart() {
+    cartDrawer.classList.add('active');
+    cartDrawer.setAttribute('aria-hidden', 'false');
+    cartDrawer.focus();
+  }
+  function closeCart() {
+    cartDrawer.classList.remove('active');
+    cartDrawer.setAttribute('aria-hidden', 'true');
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && cartDrawer.classList.contains('active')) {
+      closeCart();
+    }
+  });
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      const cat = btn.getAttribute('data-category');
+      renderMenu(cat);
+    });
+  });
+
+  submitOrderBtn.addEventListener('click', () => {
+    if (Object.keys(cart).length === 0) return;
+
+    const orderNumber = 'MIA-' + Date.now();
+
+    const orderData = {
+      orderNumber,
+      items: cart,
+      total: cartTotal.textContent.replace('Загалом: ', ''),
+      timestamp: new Date().toISOString()
+    };
+
+    let userOrders = JSON.parse(localStorage.getItem('miaUserOrders') || '[]');
+    userOrders.unshift(orderData);
+    localStorage.setItem('miaUserOrders', JSON.stringify(userOrders));
+
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = 'http://localhost:8000/receive-order';
+    form.target = '_blank';
+
+    const input = document.createElement('textarea');
+    input.name = 'orderData';
+    input.value = JSON.stringify(orderData);
+    form.appendChild(input);
+
+    document.body.appendChild(form);
+    form.submit();
+    document.body.removeChild(form);
+
+    cartDrawer.innerHTML = `
+      <div style="text-align:center; margin-top:3rem; padding: 2rem;">
+        <h2 style="color:#D63131; font-family:'Montserrat', sans-serif;">Дякуємо за замовлення!</h2>
+        <p style="font-size:1.2rem; margin:1.5rem 0;">Ваш номер замовлення: <strong>${orderNumber}</strong></p>
+        <p>Будь ласка, зателефонуйте нам за номером <a href="tel:+380676045552" style="color:#D63131; font-weight:bold;">+38 067 604 5552</a> для підтвердження.</p>
+        <button class="btn-primary" id="closeConfirmBtn" style="margin-top:2rem;">Закрити</button>
+      </div>
+    `;
+
+    cart = {};
+    clearCartBtn.disabled = true;
+    submitOrderBtn.disabled = true;
+  });
+
+  cartDrawer.addEventListener('click', e => {
+    if (e.target.id === 'closeConfirmBtn') {
+      closeCart();
+      location.reload();
+    }
+  });
+
+  const ordersModal = document.createElement('div');
+  ordersModal.className = 'orders-modal';
+  ordersModal.innerHTML = `
+    <div class="orders-modal-content" role="dialog" aria-modal="true" aria-labelledby="ordersModalTitle" tabindex="-1">
+      <h3 id="ordersModalTitle">Мої замовлення</h3>
+      <div class="orders-list" id="ordersListContainer">Завантаження...</div>
+      <button class="button-close-orders" id="closeOrdersBtn">Закрити</button>
+    </div>`;
+  document.body.appendChild(ordersModal);
+
+  const ordersListContainer = document.getElementById('ordersListContainer');
+  const closeOrdersBtn = document.getElementById('closeOrdersBtn');
+  const btnOrdersHistory = document.querySelector('.btn-orders-history');
+
+  function loadOrders() {
+    const orders = JSON.parse(localStorage.getItem('miaUserOrders') || '[]');
+    if (orders.length === 0) {
+      ordersListContainer.innerHTML = '<p>У вас поки немає замовлень.</p>';
+      return;
+    }
+    ordersListContainer.innerHTML = '';
+    orders.forEach(order => {
+      const div = document.createElement('div');
+      let itemsSummary = Object.entries(order.items).map(([name, data]) => `${name} ×${data.qty}`).join(', ');
+      div.innerHTML = `<strong>${order.orderNumber}</strong> — ${new Date(order.timestamp).toLocaleString()}<br>Страви: ${itemsSummary}<br>Сума: ${order.total}`;
+      ordersListContainer.appendChild(div);
+    });
+  }
+
+  btnOrdersHistory.addEventListener('click', () => {
+    loadOrders();
+    ordersModal.classList.add('active');
+    ordersModal.querySelector('.orders-modal-content').focus();
+  });
+
+  closeOrdersBtn.addEventListener('click', () => {
+    ordersModal.classList.remove('active');
+  });
+
+  ordersModal.addEventListener('click', e => {
+    if (e.target === ordersModal) {
+      ordersModal.classList.remove('active');
+    }
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === "Escape" && ordersModal.classList.contains('active')) {
+      ordersModal.classList.remove('active');
+    }
+  });
+
+  renderMenu('pizza');
+  updateCartUI();
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      document.querySelector('header').classList.add('scrolled');
+    } else {
+      document.querySelector('header').classList.remove('scrolled');
+    }
+  });
+
+  menuToggle.addEventListener('click', () => {
+    const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', !expanded);
+    menuNav.classList.toggle('active');
+  });
+
+  menuToggle.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      menuToggle.click();
+    }
+  });
+
+  btnOrder.addEventListener('click', openCart);
+
+</script>
+
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mia Pizza Admin - Замовлення</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 2rem;
+    background: #F9F5F5;
+    color: #333;
+  }
+  h1 {
+    color: #D63131;
+  }
+  #ordersList {
+    margin-top: 2rem;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  #ordersList th, #ordersList td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+  }
+  #ordersList th {
+    background-color: #D63131;
+    color: white;
+  }
+  .order-items {
+    max-height: 150px;
+    overflow-y: auto;
+  }
+</style>
+</head>
+<body>
+  <h1>Отримані замовлення Mia Pizza</h1>
+  <table id="ordersList">
+    <thead>
+      <tr>
+        <th>Номер</th>
+        <th>Дата</th>
+        <th>Замовлення</th>
+        <th>Загальна сума</th>
+      </tr>
+    </thead>
+    <tbody id="ordersBody">
+      <tr><td colspan="4" style="text-align:center; color:#999;">Чекаємо на замовлення...</td></tr>
+    </tbody>
+  </table>
+
+<script>
+  // Функція встановлення замовлення в localStorage (для демо)
+  function saveOrder(order) {
+    let orders = JSON.parse(localStorage.getItem('miaOrders') || '[]');
+    orders.unshift(order);
+    localStorage.setItem('miaOrders', JSON.stringify(orders));
+  }
+
+  // Функція рендеру списку замовлень
+  function renderOrders() {
+    const tbody = document.getElementById('ordersBody');
+    const orders = JSON.parse(localStorage.getItem('miaOrders') || '[]');
+    if (orders.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; color:#999;">Чекаємо на замовлення...</td></tr>';
+      return;
+    }
+    tbody.innerHTML = '';
+    orders.forEach(order => {
+      const itemsList = Object.entries(order.items).map(([name, data]) => 
+        `<div>${name} ×${data.qty} — ${data.price} грн</div>`
+      ).join('');
+
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${order.orderNumber}</td>
+        <td>${new Date(order.timestamp).toLocaleString()}</td>
+        <td class="order-items">${itemsList}</td>
+        <td>${order.total}</td>
+      `;
+      tbody.appendChild(row);
+    });
+  }
+
+  // Перевірка чи є дані у POST (в HTML неможливо, тому для демо дані передаємо через localStorage)
+  // В реальній системі тут приймати POST і зберігати на сервері
+
+  // Спробуємо отримати параметри з URL - orderData
+  const params = new URLSearchParams(window.location.search);
+  const orderDataStr = params.get('orderData');
+
+  if (orderDataStr) {
+    try {
+      const order = JSON.parse(orderDataStr);
+      saveOrder(order);
+    } catch {
+      // Немає або не валідні дані
+    }
+  }
+
+  // Відображення списку при завантаженні
+  renderOrders();
+</script>
+
+</body>
+</html> -->
